@@ -11,6 +11,7 @@
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#environment-variables">Environment Variables</a></li>
       </ul>
     </li>
     <li>
@@ -42,21 +43,35 @@ To get started with this template, follow these steps:
 
 1. Clone the repository:
 
-    ```
-        git clone <repository-url>
+    ```bash
+    git clone <repository-url>
     ```
 
 2. Install the dependencies:
 
-    ```
-        npm install
+    ```bash
+    npm install
     ```
 
-3. Configure your environment variables in the .env file:
+3. Configure your environment variables in the `.env` file:
+
+    ```plaintext
+    # Database Configuration
+    DB_CONNECTION=postgres://<username>:<password>@<host>/<db_name>
+    TEST_DB_CONNECTION=postgres://<username>:<password>@<host>/<db_name>
+
+    # Server Port
+    PORT=3001
+
+    # JWT Secrets
+    JWT_ACCESS_SECRET=<your_access_secret>
+    JWT_REFRESH_SECRET=<your_refresh_secret>
+    ```
 
 4. Start the development server:
-    ```
-        npm run dev
+
+    ```bash
+    npm run dev
     ```
 
 ### Prerequisites
