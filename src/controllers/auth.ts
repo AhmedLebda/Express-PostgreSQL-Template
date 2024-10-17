@@ -100,5 +100,6 @@ export const signup = asyncHandler(async (req, res) => {
         id: createdUser.id,
         username: createdUser.username,
         active: createdUser.active,
+        role: createdUser.role,
     });
 });

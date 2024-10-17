@@ -55,12 +55,13 @@ const login = async (
     username: string,
     password: string
 ): Promise<UserAttributes> => {
-    const user = await User.findOne({ where: { username } });
+    const user = await User.scope("withPassword").findOne({
+        where: { username },
+    });
 
     if (!user) throw new UserNotFoundError("invalid username or password");
 
     const validPassword = await bcrypt.compare(password, user.password);
-
     if (!validPassword)
         throw new UserNotFoundError("invalid username or password");
 

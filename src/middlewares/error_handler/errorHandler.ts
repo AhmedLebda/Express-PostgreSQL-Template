@@ -23,31 +23,31 @@ const errorhandler = (
     console.log("Error Msg", error.message);
 
     if (error.name === "Error") {
-        res.status(400).json({ error: error.message });
+        return res.status(400).json({ error: error.message });
     }
 
     // Json web token
     if (error.name === "JsonWebTokenError") {
-        res.status(401).json({ error: "Invalid token" });
+        return res.status(401).json({ error: "Invalid token" });
     }
     if (error.name === "TokenExpiredError") {
-        res.status(401).json({ error: "Token expired" });
+        return res.status(401).json({ error: "Token expired" });
     }
 
     // Sequelize
     if (error.name === "SequelizeUniqueConstraintError") {
-        res.status(400).json({ error: "Username already exists" });
+        return res.status(400).json({ error: "Username already exists" });
     }
     if (error.name === "SequelizeValidationError") {
-        res.status(400).json({ error: error.message });
+        return res.status(400).json({ error: error.message });
     }
 
     // Custom
     if (customErrors.includes(error.name)) {
-        res.status(error.statusCode).json({ error: error.message });
+        return res.status(error.statusCode).json({ error: error.message });
     }
 
-    res.status(500).json({ error: "internal Server Error" });
+    return res.status(500).json({ error: "internal Server Error" });
 };
 
 export default errorhandler;
