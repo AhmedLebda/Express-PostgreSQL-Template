@@ -7,7 +7,7 @@
     "start": "cross-env NODE_ENV=production node ./index.js",
     "dev": "cross-env NODE_ENV=development ts-node-dev ./index.ts",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
-    "migration:down": "node ./src/utils/rollback.js",
+    "migration:down": "ts-node-dev ./src/utils/rollback.ts",
     "build": "tsc"
   },
   "keywords": [

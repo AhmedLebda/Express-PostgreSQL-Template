@@ -15,7 +15,7 @@ export const sequelize = new Sequelize(DATABASE_URI, {
 
 const migrationConfig = {
     migrations: {
-        glob: "migrations/*.ts",
+        glob: "src/migrations/*.ts",
     },
     storage: new SequelizeStorage({
         sequelize,
@@ -45,8 +45,8 @@ export const rollbackMigration = async () => {
         await migrator.down();
     } catch (err) {
         console.log("Failed to rollback migrations", err);
-        process.exit(1);
     }
+    process.exit(1);
 };
 
 export const connectToDatabase = async () => {
