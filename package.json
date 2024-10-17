@@ -1,0 +1,51 @@
+{
+  "name": "backend-template",
+  "version": "2.0.0",
+  "description": "This is a starter template for node/express REST API backend with basic configuration and packages",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node ./index.js",
+    "dev": "cross-env NODE_ENV=development ts-node-dev ./index.ts",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
+    "migration:down": "node ./src/utils/rollback.js",
+    "build": "tsc"
+  },
+  "keywords": [
+    "NodeJS",
+    "ExpressJs",
+    "PostgreSQL",
+    "Sequelize",
+    "TypeScript"
+  ],
+  "author": "Ahmed Lebda",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-async-handler": "^1.2.0",
+    "express-rate-limit": "^7.4.1",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "pg": "^8.13.0",
+    "sequelize": "^6.37.4",
+    "umzug": "^3.8.2"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cookie-parser": "^1.4.7",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/morgan": "^1.9.9",
+    "@types/sequelize": "^4.28.20",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "@typescript-eslint/parser": "^8.8.1",
+    "eslint": "^9.12.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.5.4"
+  }
+}
